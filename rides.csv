@@ -1,0 +1,101 @@
+ride_id,user_id,driver_id,start_location,destination,fare_charge,status,requested_at
+104,2544,4,31150 Surrey Alley,61055 Rowland Alley,17.93,canceled,2025-03-08 00:00:00
+109,2549,9,9 Mccormick Pass,8 Autumn Leaf Crossing,19.26,canceled,2025-03-08 00:00:00
+117,25417,17,1139 Veith Road,85 Fisk Court,43.32,canceled,2025-03-08 00:00:00
+122,25422,22,17 Center Point,10 Nova Hill,54.78,canceled,2025-03-08 00:00:00
+124,25424,24,4297 Northland Way,6003 Lillian Lane,67.34,canceled,2025-03-08 00:00:00
+125,25425,25,62460 La Follette Road,8 Westerfield Alley,73.72,canceled,2025-03-08 00:00:00
+128,25428,28,9 Jackson Alley,365 Scott Street,4.33,canceled,2025-03-08 00:00:00
+130,25430,30,82 Atwood Road,6462 Jenifer Avenue,88.37,canceled,2025-03-08 00:00:00
+156,25456,56,315 Shelley Street,1210 Straubel Trail,49.05,canceled,2025-03-08 00:00:00
+157,25457,57,8407 Monument Junction,9206 Heffernan Place,89.71,canceled,2025-03-08 00:00:00
+159,25459,59,8383 Truax Pass,56431 Butternut Plaza,66.68,canceled,2025-03-08 00:00:00
+162,25462,62,09 Donald Crossing,96246 Hayes Avenue,58.74,canceled,2025-03-08 00:00:00
+163,25463,63,6 Swallow Plaza,2 Utah Lane,3.08,canceled,2025-03-08 00:00:00
+166,25466,66,5 Dwight Pass,74 Duke Point,81.62,canceled,2025-03-08 00:00:00
+167,25467,67,51 Hoffman Road,5 Ramsey Drive,34.27,canceled,2025-03-08 00:00:00
+188,25488,88,64 Sherman Hill,0297 Bellgrove Avenue,52.71,canceled,2025-03-08 00:00:00
+199,25499,99,51 Spohn Way,5580 Gateway Way,31.58,canceled,2025-03-08 00:00:00
+200,254100,100,8 Weeping Birch Parkway,8007 Burrows Alley,54.35,canceled,2025-03-08 00:00:00
+101,2541,1,48 Bluejay Road,664 Del Mar Road,8.82,completed,2025-03-08 00:00:00
+103,2543,3,26940 Leroy Trail,5 Delaware Road,77.02,completed,2025-03-08 00:00:00
+105,2545,5,83 Ludington Alley,3938 Loeprich Place,85.08,completed,2025-03-08 00:00:00
+110,25410,10,34 Russell Hill,049 Talmadge Park,75.60,completed,2025-03-08 00:00:00
+113,25413,13,33 Hayes Avenue,4228 Bayside Pass,89.69,completed,2025-03-08 00:00:00
+114,25414,14,69 Monument Circle,1 Village Green Terrace,93.52,completed,2025-03-08 00:00:00
+119,25419,19,264 Moose Road,16340 Morningstar Plaza,54.28,completed,2025-03-08 00:00:00
+120,25420,20,5508 Gateway Junction,031 Summit Court,96.03,completed,2025-03-08 00:00:00
+126,25426,26,49 Haas Court,91 Hauk Park,8.55,completed,2025-03-08 00:00:00
+132,25432,32,61360 Sachtjen Street,9 Manley Street,96.57,completed,2025-03-08 00:00:00
+135,25435,35,35 Iowa Trail,0167 Grim Hill,27.17,completed,2025-03-08 00:00:00
+140,25440,40,05358 Hauk Alley,710 Clemons Place,39.71,completed,2025-03-08 00:00:00
+141,25441,41,12 Chive Lane,379 Dryden Junction,52.19,completed,2025-03-08 00:00:00
+142,25442,42,8614 Lighthouse Bay Road,0 Eagan Lane,91.35,completed,2025-03-08 00:00:00
+146,25446,46,694 Thompson Terrace,77 Forest Avenue,52.95,completed,2025-03-08 00:00:00
+148,25448,48,361 Express Road,51 Sugar Park,6.94,completed,2025-03-08 00:00:00
+149,25449,49,3874 Beilfuss Junction,977 Michigan Drive,85.07,completed,2025-03-08 00:00:00
+152,25452,52,95582 Fisk Circle,4 Pearson Drive,46.42,completed,2025-03-08 00:00:00
+153,25453,53,04924 Magdeline Park,33744 Banding Crossing,52.52,completed,2025-03-08 00:00:00
+155,25455,55,330 Emmet Street,5 Hermina Trail,95.10,completed,2025-03-08 00:00:00
+158,25458,58,846 Westport Center,298 Sloan Crossing,90.00,completed,2025-03-08 00:00:00
+160,25460,60,73635 Mosinee Street,091 Moland Way,57.81,completed,2025-03-08 00:00:00
+161,25461,61,8370 Merrick Circle,530 Kedzie Center,11.32,completed,2025-03-08 00:00:00
+171,25471,71,81 Union Way,98 Spaight Avenue,70.37,completed,2025-03-08 00:00:00
+174,25474,74,9 Pennsylvania Hill,2 Eagle Crest Drive,94.12,completed,2025-03-08 00:00:00
+175,25475,75,6548 Stone Corner Plaza,3 Lakewood Gardens Street,92.43,completed,2025-03-08 00:00:00
+176,25476,76,8564 Derek Street,17695 Dunning Point,59.27,completed,2025-03-08 00:00:00
+179,25479,79,524 Holy Cross Junction,49 Messerschmidt Plaza,78.69,completed,2025-03-08 00:00:00
+186,25486,86,3 Arrowood Parkway,6919 South Circle,38.12,completed,2025-03-08 00:00:00
+191,25491,91,18089 Melby Crossing,77189 Lawn Parkway,37.19,completed,2025-03-08 00:00:00
+197,25497,97,1 Swallow Court,413 Mariners Cove Park,65.86,completed,2025-03-08 00:00:00
+198,25498,98,16414 Wayridge Drive,82152 Comanche Circle,51.18,completed,2025-03-08 00:00:00
+106,2546,6,1104 Northfield Way,643 Novick Avenue,34.56,in_progress,2025-03-08 00:00:00
+108,2548,8,69428 Bluestem Place,5 Arkansas Lane,93.30,in_progress,2025-03-08 00:00:00
+112,25412,12,0287 Eggendart Junction,10352 South Road,52.68,in_progress,2025-03-08 00:00:00
+116,25416,16,40 Butternut Road,83874 Butternut Terrace,40.95,in_progress,2025-03-08 00:00:00
+118,25418,18,33916 Raven Road,23 Schurz Circle,51.63,in_progress,2025-03-08 00:00:00
+123,25423,23,6698 Trailsway Plaza,92 Kinsman Pass,64.67,in_progress,2025-03-08 00:00:00
+127,25427,27,9 Porter Place,4 Evergreen Junction,66.64,in_progress,2025-03-08 00:00:00
+129,25429,29,571 Welch Park,95 Mallard Hill,43.17,in_progress,2025-03-08 00:00:00
+133,25433,33,71 Banding Terrace,86 Old Gate Plaza,43.20,in_progress,2025-03-08 00:00:00
+134,25434,34,71415 Cascade Junction,733 Arapahoe Circle,99.31,in_progress,2025-03-08 00:00:00
+136,25436,36,31360 Grim Terrace,6777 Garrison Crossing,37.86,in_progress,2025-03-08 00:00:00
+144,25444,44,21238 Hanover Park,8 Hagan Trail,98.80,in_progress,2025-03-08 00:00:00
+150,25450,50,896 Stoughton Place,11 Browning Terrace,62.11,in_progress,2025-03-08 00:00:00
+154,25454,54,621 Aberg Park,165 Columbus Trail,65.67,in_progress,2025-03-08 00:00:00
+165,25465,65,044 John Wall Park,656 Loeprich Park,55.47,in_progress,2025-03-08 00:00:00
+168,25468,68,64188 Arizona Plaza,0 Melody Road,92.51,in_progress,2025-03-08 00:00:00
+170,25470,70,4406 Muir Drive,360 Onsgard Avenue,90.33,in_progress,2025-03-08 00:00:00
+172,25472,72,1612 High Crossing Circle,329 Green Ridge Way,63.46,in_progress,2025-03-08 00:00:00
+177,25477,77,677 Barby Circle,296 Anniversary Crossing,24.95,in_progress,2025-03-08 00:00:00
+181,25481,81,30 Meadow Vale Lane,8448 Hoepker Lane,52.42,in_progress,2025-03-08 00:00:00
+182,25482,82,8938 Vidon Hill,54465 Comanche Junction,1.48,in_progress,2025-03-08 00:00:00
+183,25483,83,59548 Sutherland Circle,075 Esch Junction,53.18,in_progress,2025-03-08 00:00:00
+184,25484,84,46068 Drewry Lane,87828 Sutteridge Parkway,68.04,in_progress,2025-03-08 00:00:00
+185,25485,85,97191 Dayton Road,54667 Forest Dale Crossing,89.38,in_progress,2025-03-08 00:00:00
+187,25487,87,63997 Pierstorff Terrace,4462 Comanche Circle,34.56,in_progress,2025-03-08 00:00:00
+189,25489,89,46 Mayer Pass,306 Dwight Trail,78.15,in_progress,2025-03-08 00:00:00
+190,25490,90,44228 Gerald Crossing,4815 Stuart Avenue,59.72,in_progress,2025-03-08 00:00:00
+195,25495,95,85 Vahlen Junction,368 Namekagon Place,59.20,in_progress,2025-03-08 00:00:00
+102,2542,2,66 Hintze Junction,2721 Bluestem Alley,77.54,requested,2025-03-08 00:00:00
+107,2547,7,5 Bayside Crossing,87 Fordem Plaza,67.90,requested,2025-03-08 00:00:00
+111,25411,11,7797 Shasta Circle,513 Holmberg Parkway,93.28,requested,2025-03-08 00:00:00
+115,25415,15,936 Norway Maple Crossing,0339 Washington Center,62.44,requested,2025-03-08 00:00:00
+121,25421,21,9845 Summit Plaza,03420 Village Green Drive,33.19,requested,2025-03-08 00:00:00
+131,25431,31,74 Shelley Way,89127 Killdeer Circle,55.36,requested,2025-03-08 00:00:00
+137,25437,37,2100 Kedzie Lane,1272 Golden Leaf Park,30.15,requested,2025-03-08 00:00:00
+138,25438,38,269 Autumn Leaf Alley,672 Westridge Plaza,45.52,requested,2025-03-08 00:00:00
+139,25439,39,26108 Forest Run Crossing,9 Arkansas Circle,60.56,requested,2025-03-08 00:00:00
+143,25443,43,5 Eagle Crest Trail,6 Shasta Alley,91.59,requested,2025-03-08 00:00:00
+145,25445,45,90 Golden Leaf Court,353 Center Trail,18.53,requested,2025-03-08 00:00:00
+147,25447,47,24772 Moland Court,0308 Briar Crest Junction,90.87,requested,2025-03-08 00:00:00
+151,25451,51,220 Graceland Pass,3275 Lake View Park,73.26,requested,2025-03-08 00:00:00
+164,25464,64,6352 Maryland Terrace,8 Fairfield Point,98.42,requested,2025-03-08 00:00:00
+169,25469,69,0379 Shasta Park,84594 Granby Court,33.83,requested,2025-03-08 00:00:00
+173,25473,73,5 Lakeland Plaza,677 Reinke Center,83.58,requested,2025-03-08 00:00:00
+178,25478,78,4 Birchwood Lane,54 Macpherson Lane,61.70,requested,2025-03-08 00:00:00
+180,25480,80,5 Oak Hill,00 Dottie Point,9.27,requested,2025-03-08 00:00:00
+192,25492,92,4 Washington Junction,3263 Ohio Drive,54.35,requested,2025-03-08 00:00:00
+193,25493,93,470 Pawling Point,1758 Forest Dale Point,84.18,requested,2025-03-08 00:00:00
+194,25494,94,80 Delladonna Pass,24312 Del Mar Hill,23.42,requested,2025-03-08 00:00:00
+196,25496,96,4 Norway Maple Avenue,63 Esker Avenue,13.87,requested,2025-03-08 00:00:00
