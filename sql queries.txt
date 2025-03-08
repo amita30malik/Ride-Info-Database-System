@@ -1,0 +1,159 @@
+                     List of relations
+ Schema |       Name        |       Type        |  Owner
+--------+-------------------+-------------------+----------
+ public | app_users         | table             | postgres
+ public | drivers           | table             | postgres
+ public | rides             | partitioned table | postgres
+ public | rides_canceled    | table             | postgres
+ public | rides_completed   | table             | postgres
+ public | rides_in_progress | table             | postgres
+ public | rides_requested   | table             | postgres
+
+
+
+******************************************************************************************************************
+******************************************************************************************************************
+                                       Table "public.app_users"
+  Column  |         Type          | Collation | Nullable |                  Default
+----------+-----------------------+-----------+----------+--------------------------------------------
+ user_id  | bigint                |           | not null | nextval('app_users_user_id_seq'::regclass)
+ name     | character varying(50) |           | not null |
+ phone_no | character varying(15) |           |          |
+ email    | character varying(50) |           | not null |
+Indexes:
+    "app_users_pkey" PRIMARY KEY, btree (user_id)
+    "app_users_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "app_users_phone_no_check" CHECK (phone_no::text ~ '^\+?[0-9]{10,15}$'::text)
+Referenced by:
+    TABLE "rides" CONSTRAINT "rides_user_id_fkey" FOREIGN KEY (user_id) REFERENCES app_users(user_id)
+
+
+SQL query
+----------
+CREATE TABLE users (
+    user_id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    phone_no VARCHAR(15) CHECK (phone_no ~ '^\+?[0-9]{10,15}$'),
+    email VARCHAR(50) UNIQUE NOT NULL
+);
+
+
+********************************************************************************************************************
+                                       Partitioned table "public.rides"
+     Column     |            Type             | Collation | Nullable |                Default
+----------------+-----------------------------+-----------+----------+----------------------------------------
+ ride_id        | bigint                      |           | not null | nextval('rides_ride_id_seq'::regclass)
+ user_id        | integer                     |           |          |
+ driver_id      | integer                     |           |          |
+ start_location | character varying(300)      |           | not null |
+ destination    | character varying(300)      |           | not null |
+ fare_charge    | numeric(10,2)               |           |          |
+ status         | character varying(20)       |           | not null |
+ requested_at   | timestamp without time zone |           |          | CURRENT_TIMESTAMP
+Partition key: LIST (status)
+Indexes:
+    "rides_pkey" PRIMARY KEY, btree (ride_id, status)
+Check constraints:
+    "rides_status_check" CHECK (status::text = ANY (ARRAY['requested'::character varying, 'in_progress'::character varying, 'completed'::character varying, 'canceled'::character varying]::text[]))
+Foreign-key constraints:
+    "rides_driver_id_fkey" FOREIGN KEY (driver_id) REFERENCES drivers(driver_id)
+    "rides_user_id_fkey" FOREIGN KEY (user_id) REFERENCES app_users(user_id)
+Triggers:
+    ride_status_update AFTER UPDATE ON rides FOR EACH ROW EXECUTE FUNCTION update_ride_status()
+Number of partitions: 4 (Use \d+ to list them.)
+
+
+
+
+
+sql query
+----------
+CREATE TABLE rides (
+    ride_id BIGSERIAL NOT NULL,
+    user_id INT REFERENCES users(user_id),
+    driver_id INT REFERENCES drivers(driver_id),
+    start_location VARCHAR(300) NOT NULL,
+    destination VARCHAR(300) NOT NULL,
+    fare_charge DECIMAL(10,2),
+    status VARCHAR(20) CHECK (status IN ('requested', 'in_progress', 'completed', 'canceled')) NOT NULL,
+    requested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ride_id, status)
+) PARTITION BY LIST (status);
+
+CREATE TABLE rides_requested PARTITION OF rides FOR VALUES IN ('requested');
+CREATE TABLE rides_in_progress PARTITION OF rides FOR VALUES IN ('in_progress');
+CREATE TABLE rides_completed PARTITION OF rides FOR VALUES IN ('completed');
+CREATE TABLE rides_canceled PARTITION OF rides FOR VALUES IN ('canceled');
+
+********************************************************************************************************************
+
+                                        Table "public.drivers"
+  Column   |         Type          | Collation | Nullable |                  Default
+-----------+-----------------------+-----------+----------+--------------------------------------------
+ driver_id | bigint                |           | not null | nextval('drivers_driver_id_seq'::regclass)
+ name      | character varying(50) |           | not null |
+ car_model | character varying(50) |           | not null |
+ status    | character varying(20) |           |          |
+Indexes:
+    "drivers_pkey" PRIMARY KEY, btree (driver_id)
+Check constraints:
+    "drivers_status_check" CHECK (status::text = ANY (ARRAY['available'::character varying, 'on_trip'::character varying]::text[]))
+Referenced by:
+    TABLE "rides" CONSTRAINT "rides_driver_id_fkey" FOREIGN KEY (driver_id) REFERENCES drivers(driver_id)
+
+
+
+SQL query
+----------
+CREATE TABLE drivers (
+    driver_id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    car_model VARCHAR(50),
+    status VARCHAR(20) CHECK (status IN ('available', 'on_trip'))
+);
+
+********************************************************************************************************************
+
+Stored Procedure to Assign Nearest Driver
+**********************************************
+CREATE OR REPLACE FUNCTION assign_driver(ride_id INT) RETURNS VOID AS $$
+DECLARE
+    nearest_driver INT;
+BEGIN
+    SELECT driver_id INTO nearest_driver 
+    FROM drivers 
+    WHERE status = 'available'
+    ORDER BY RANDOM() LIMIT 1;  -- Simplified, can use geolocation logic
+
+    IF nearest_driver IS NOT NULL THEN
+        UPDATE rides SET driver_id = nearest_driver, status = 'in_progress'
+        WHERE rides.ride_id = ride_id;
+        
+        UPDATE drivers SET status = 'on_trip' WHERE driver_id = nearest_driver;
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+
+
+*********************************************
+Trigger to Update Ride Status Automatically
+*********************************************
+
+sql query
+----------
+CREATE OR REPLACE FUNCTION update_ride_status() RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.status = 'completed' THEN
+        UPDATE drivers SET status = 'available' WHERE driver_id = NEW.driver_id;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER ride_status_update
+AFTER UPDATE ON rides
+FOR EACH ROW EXECUTE FUNCTION update_ride_status();
